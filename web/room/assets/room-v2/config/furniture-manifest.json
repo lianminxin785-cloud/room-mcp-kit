@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "room-furniture-v1",
+  "background": {
+    "key": "room-square",
+    "path": "room/assets/room-v2/game/background/room-square.png"
+  },
+  "textures": {
+    "v2-bed-back": "room/assets/room-v2/game/furniture/bed/back.png",
+    "v2-bed-blanket-front": "room/assets/room-v2/game/furniture/bed/blanket-front.png",
+    "v2-sofa-back": "room/assets/room-v2/game/furniture/sofa/back.png",
+    "v2-chair-owner-back": "room/assets/room-v2/game/furniture/workstation/chair-owner-back.png",
+    "v2-chair-companion-back": "room/assets/room-v2/game/furniture/workstation/chair-companion-back.png",
+    "v2-desk-front": "room/assets/room-v2/game/furniture/workstation/desk-front.png",
+    "v2-television-off": "room/assets/room-v2/game/furniture/television/off.png",
+    "v2-television-on": "room/assets/room-v2/game/furniture/television/on.png",
+    "v2-rug-back": "room/assets/room-v2/game/furniture/rug/back.png",
+    "v2-coffee-table-back": "room/assets/room-v2/game/furniture/coffee-table/back.png",
+    "v2-dresser-back": "room/assets/room-v2/game/furniture/dresser/back.png",
+    "v2-wardrobe-back": "room/assets/room-v2/game/furniture/wardrobe/back.png",
+    "v2-bookcase-back": "room/assets/room-v2/game/furniture/bookcase/back.png",
+    "v2-lounge-area-back": "room/assets/room-v2/game/furniture/lounge-area/back.png",
+    "v2-wall-shelf": "room/assets/room-v2/game/furniture/wall-decor/jiazi.png",
+    "v2-wall-photo": "room/assets/room-v2/game/furniture/wall-decor/photo.png"
+  }
+}

@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.db
+*.sqlite
+*.sqlite3
+.pytest_cache/
+node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db
+
+# 开源准备阶段生成的本地资源和临时导出物
+tmp/
+local-assets/
+*.tar.gz
+*.zip

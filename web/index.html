@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#eadfce">
+  <title>Room MCP Kit</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="room/room.css?v=17">
+</head>
+<body>
+  <div class="room-app" data-room-milestone="public-preview">
+    <header class="room-topbar">
+      <span class="room-back" aria-hidden="true">⌂ <span>HOME</span></span>
+      <div class="room-heading">
+        <h1>Room</h1>
+        <p>LOCAL PIXEL PROTOTYPE</p>
+      </div>
+      <span class="room-local-badge">LOCAL</span>
+    </header>
+
+    <main class="room-main">
+      <section class="room-card" aria-labelledby="room-stage-title">
+        <div class="room-card-copy">
+          <div>
+            <p class="room-kicker">SELF-HOSTED PIXEL ROOM</p>
+            <h2 id="room-stage-title">Room MCP Kit</h2>
+          </div>
+          <span class="room-local-badge">本地开发</span>
+        </div>
+
+        <div class="room-game-frame">
+          <div id="room-game" class="room-game" role="img" aria-label="Room 像素场景"></div>
+          <div id="room-loading" class="room-loading" aria-live="polite">正在进入房间…</div>
+          <div id="room-actions" class="room-actions" aria-live="polite" hidden></div>
+        </div>
+
+        <div class="room-camera-controls" aria-label="房间左右视野">
+          <span aria-hidden="true">←</span>
+          <input id="room-camera-slider" type="range" min="0" max="1000" value="500" aria-label="左右移动房间视野">
+          <span aria-hidden="true">→</span>
+          <output id="room-camera-zoom" class="room-camera-zoom">100%</output>
+        </div>
+
+        <div class="room-build-controls" aria-label="房间建造工具">
+          <button id="room-build-toggle" class="room-build-toggle" type="button" aria-pressed="false">
+            <span aria-hidden="true">⌂</span>
+            <span class="room-build-toggle-label">建造模式</span>
+          </button>
+          <button id="room-build-refresh" class="room-build-refresh" type="button" hidden>刷新房间</button>
+          <p id="room-build-hint" class="room-build-hint" hidden>拖动家具自由摆放；彩色细格表示实际占地，松手后自动保存。</p>
+        </div>
+
+        <section id="room-character-cards" class="room-character-cards" aria-label="人物状态">
+          <article class="room-character-card" data-character-card="owner">
+            <div class="room-character-card-heading"><strong>You</strong><span data-character-mood>心情：未设置</span></div>
+            <p data-character-activity>空闲</p>
+            <small data-character-location>房间里</small>
+          </article>
+          <article class="room-character-card" data-character-card="companion">
+            <div class="room-character-card-heading"><strong>Companion</strong><span data-character-mood>心情：未设置</span></div>
+            <p data-character-activity>空闲</p>
+            <small data-character-location>房间里</small>
+          </article>
+        </section>
+
+        <p id="room-status" class="room-status" aria-live="polite">正在准备房间</p>
+      </section>
+
+      <p class="room-note">双人合成动作是可选资源；未配置时会显示两个独立人物动作。</p>
+    </main>
+  </div>
+
+  <script src="vendor/phaser/phaser.min.js"></script>
+  <script type="module" src="room/main.js?v=public-1"></script>
+</body>
+</html>

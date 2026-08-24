@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Room MCP Kit · Calibration</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="room/anchor-calibration-v2.css?v=public-1">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">ROOM MCP KIT</p>
+        <h1>资源包与双人动作校准</h1>
+        <p>读取公共角色包、家具清单和可选动作包。校准只修改浏览器中的预览值，不覆盖源图。</p>
+      </div>
+      <a href="index.html">返回 Room</a>
+    </header>
+
+    <p id="page-status" class="page-status">正在读取公共配置……</p>
+
+    <section class="panel" aria-labelledby="roles-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="roles-heading">角色包预览</h2>
+          <p>公共默认角色只是几何占位图；替换角色包即可换成自己的 OC。</p>
+        </div>
+      </div>
+      <div id="role-list" class="calibration-list"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="duo-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="duo-heading">可选双人合成动作</h2>
+          <p>每项可调整 X、Y 和统一缩放。动作包为空时，正式 Room 自动显示两个独立人物动作。</p>
+        </div>
+      </div>
+      <div id="duo-list" class="calibration-list duo-calibration-list"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="manifest-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="manifest-heading">当前配置摘要</h2>
+          <p>用于确认页面读取的是拆分后的公共配置。</p>
+        </div>
+      </div>
+      <pre id="manifest-output" class="config-output"></pre>
+    </section>
+  </main>
+
+  <script type="module" src="room/anchor-calibration-v2.js?v=public-1"></script>
+</body>
+</html>

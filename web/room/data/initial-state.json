@@ -1,0 +1,291 @@
+{
+  "roomId": "home",
+  "scene": {
+    "id": "home",
+    "revision": 1,
+    "name": "My Room",
+    "background": "room/assets/room-v2/game/background/room-square.png"
+  },
+  "characters": [
+    {
+      "id": "owner",
+      "displayName": "You",
+      "position": { "x": 32, "y": 70 },
+      "direction": "up",
+      "clothes": "default",
+      "emotion": "happy",
+      "action": "idle"
+    },
+    {
+      "id": "companion",
+      "displayName": "Companion",
+      "position": { "x": 50, "y": 70 },
+      "direction": "up",
+      "clothes": "default",
+      "emotion": "calm",
+      "action": "idle"
+    }
+  ],
+  "furniture": [
+    {
+      "id": "bed",
+      "type": "furniture",
+      "asset": "bed",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-bed-back", "role": "back" },
+        {
+          "id": "blanket-front",
+          "texture": "v2-bed-blanket-front",
+          "role": "front",
+          "transform": { "x": 0, "y": 8, "scale": 1.08 }
+        }
+      ],
+      "position": { "x": 336, "y": 1040 },
+      "footprint": { "x": 11, "y": 49, "width": 20, "height": 16 },
+      "actionScale": 1.0,
+      "actionAnchors": {
+        "sleep": { "x": -50, "y": -319 },
+        "rest": { "x": -50, "y": -319 }
+      },
+      "interactionSlots": {
+        "sleep": [
+          { "id": "sleepLeft", "anchor": { "x": -50, "y": -319 }, "facing": "up" },
+          { "id": "sleepRight", "anchor": { "x": 50, "y": -319 }, "facing": "up" }
+        ],
+        "rest": [
+          { "id": "sleepLeft", "anchor": { "x": -50, "y": -319 }, "facing": "up" },
+          { "id": "sleepRight", "anchor": { "x": 50, "y": -319 }, "facing": "up" }
+        ]
+      },
+      "interactions": ["sleep", "rest"]
+    },
+    {
+      "id": "computer",
+      "type": "furniture",
+      "asset": "workstation",
+      "interactiveLayer": "desk-front",
+      "layers": [
+        {
+          "id": "chair-owner-back",
+          "texture": "v2-chair-owner-back",
+          "role": "back",
+          "transform": { "x": -126, "y": -90, "scale": 1 }
+        },
+        {
+          "id": "chair-companion-back",
+          "texture": "v2-chair-companion-back",
+          "role": "back",
+          "transform": { "x": 126, "y": -90, "scale": 1 }
+        },
+        {
+          "id": "desk-front",
+          "texture": "v2-desk-front",
+          "role": "front",
+          "transform": { "x": 0, "y": 8, "scale": 1 }
+        }
+      ],
+      "position": { "x": 1200, "y": 1024 },
+      "footprint": { "x": 58, "y": 51, "width": 34, "height": 13 },
+      "actionScale": 1.04,
+      "actionAnchors": { "work": { "x": -130, "y": -222 } },
+      "interactionSlots": {
+        "work": [
+          {
+            "id": "workOwner",
+            "anchor": { "x": -130, "y": -222 },
+            "facing": "up",
+            "actorIds": ["owner"]
+          },
+          {
+            "id": "workCompanion",
+            "anchor": { "x": 130, "y": -222 },
+            "facing": "up",
+            "actorIds": ["companion"]
+          }
+        ]
+      },
+      "interactions": ["work"]
+    },
+    {
+      "id": "sofa",
+      "type": "furniture",
+      "asset": "sofa",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-sofa-back", "role": "back" }
+      ],
+      "position": { "x": 272, "y": 1280 },
+      "footprint": { "x": 5, "y": 73, "width": 24, "height": 7 },
+      "actionScale": 1.0,
+      "actionAnchors": { "sit": { "x": -65, "y": -118 } },
+      "interactionSlots": {
+        "sit": [
+          {
+            "id": "seatLeft",
+            "anchor": { "x": -65, "y": -118 },
+            "facing": "down",
+            "actorIds": ["owner"]
+          },
+          {
+            "id": "seatRight",
+            "anchor": { "x": 65, "y": -118 },
+            "facing": "down",
+            "actorIds": ["companion"]
+          }
+        ]
+      },
+      "interactions": ["sit"]
+    },
+    {
+      "id": "television",
+      "type": "furniture",
+      "asset": "television",
+      "interactiveLayer": "screen",
+      "layers": [
+        {
+          "id": "screen",
+          "textures": { "off": "v2-television-off", "on": "v2-television-on" },
+          "role": "back",
+          "transform": { "x": 0, "y": 0, "scale": 0.75 }
+        }
+      ],
+      "textureState": "off",
+      "position": { "x": 1288, "y": 1280 },
+      "footprint": { "x": 70, "y": 70, "width": 21, "height": 10 },
+      "actionAnchors": { "toggle_tv": null },
+      "interactions": ["toggle_tv"]
+    },
+    {
+      "id": "rug",
+      "type": "furniture",
+      "asset": "rug",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-rug-back", "role": "floor" }
+      ],
+      "position": { "x": 720, "y": 1344 },
+      "footprint": { "x": 31, "y": 68, "width": 28, "height": 16 },
+      "blocking": false,
+      "layer": "floor",
+      "pointerPassthrough": true,
+      "interactions": []
+    },
+    {
+      "id": "coffee-table",
+      "type": "furniture",
+      "asset": "coffee-table",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-coffee-table-back", "role": "back" }
+      ],
+      "position": { "x": 720, "y": 1312 },
+      "footprint": { "x": 34, "y": 75, "width": 22, "height": 7 },
+      "interactions": []
+    },
+    {
+      "id": "dresser",
+      "type": "furniture",
+      "asset": "dresser",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-dresser-back", "role": "back" }
+      ],
+      "position": { "x": 800, "y": 1440 },
+      "footprint": { "x": 38, "y": 82, "width": 24, "height": 8 },
+      "interactions": []
+    },
+    {
+      "id": "wardrobe",
+      "type": "furniture",
+      "asset": "wardrobe",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-wardrobe-back", "role": "back" }
+      ],
+      "position": { "x": 656, "y": 832 },
+      "footprint": { "x": 33, "y": 42, "width": 16, "height": 10 },
+      "interactions": []
+    },
+    {
+      "id": "bookcase",
+      "type": "furniture",
+      "asset": "bookcase",
+      "interactiveLayer": "back",
+      "layers": [
+        {
+          "id": "back",
+          "texture": "v2-bookcase-back",
+          "role": "back",
+          "transform": { "x": 1, "y": -69, "scale": 1 }
+        }
+      ],
+      "position": { "x": 1000, "y": 752 },
+      "footprint": { "x": 49, "y": 36, "width": 27, "height": 11 },
+      "actionAnchors": {
+        "read": { "x": -108, "y": -117 }
+      },
+      "interactionSlots": {
+        "read": [
+          {
+            "id": "readOwner",
+            "anchor": { "x": -108, "y": -117 },
+            "scale": 1,
+            "facing": "down",
+            "actorIds": ["owner"]
+          },
+          {
+            "id": "readCompanion",
+            "anchor": { "x": 110, "y": -111 },
+            "scale": 1.07,
+            "facing": "down",
+            "actorIds": ["companion"]
+          }
+        ]
+      },
+      "interactions": ["read"]
+    },
+    {
+      "id": "lounge-area",
+      "type": "furniture",
+      "asset": "lounge-area",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-lounge-area-back", "role": "back" }
+      ],
+      "position": { "x": 1312, "y": 1536 },
+      "footprint": { "x": 68, "y": 80, "width": 28, "height": 16 },
+      "interactions": []
+    },
+    {
+      "id": "wall-shelf",
+      "type": "furniture",
+      "asset": "jiazi",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-wall-shelf", "role": "wall" }
+      ],
+      "position": { "x": 456, "y": 560 },
+      "footprint": { "x": 18, "y": 21, "width": 21, "height": 14 },
+      "blocking": false,
+      "layer": "wall",
+      "pointerPassthrough": true,
+      "interactions": []
+    },
+    {
+      "id": "wall-photo",
+      "type": "furniture",
+      "asset": "photo",
+      "interactiveLayer": "back",
+      "layers": [
+        { "id": "back", "texture": "v2-wall-photo", "role": "wall" }
+      ],
+      "position": { "x": 1152, "y": 544 },
+      "footprint": { "x": 63, "y": 20, "width": 18, "height": 14 },
+      "blocking": false,
+      "layer": "wall",
+      "pointerPassthrough": true,
+      "interactions": []
+    }
+  ]
+}

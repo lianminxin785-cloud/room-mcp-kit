@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: room_service/requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Python dependencies
+        run: python -m pip install -r room_service/requirements.txt
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check web/room/main.js
+          node --check web/room/RoomServiceClient.js
+          node --check web/room/scenes/RoomScene.js
+          node --check web/room/anchor-calibration-v2.js
+
+      - name: Check Python syntax
+        run: |
+          python -m py_compile \
+            tools/process_character_assets.py \
+            tools/process_furniture_asset.py \
+            tools/process_room_background.py
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v

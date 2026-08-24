@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "room-character-pack-v1",
+  "canvases": {
+    "locomotion": { "size": [192, 304], "anchor": "footAnchor" },
+    "seated": { "size": [192, 280], "anchor": "hipAnchor" },
+    "lying": { "size": [224, 336], "anchor": "pillowAnchor" }
+  },
+  "anchors": {
+    "footAnchor": { "x": 96, "y": 296 },
+    "hipAnchor": { "x": 96, "y": 152 },
+    "pillowAnchor": { "x": 112, "y": 62 }
+  },
+  "animations": {
+    "walk": { "frames": ["0", "idle", "1"], "frameRate": 5 },
+    "work": { "frames": ["0", "1"], "frameRate": 3 }
+  },
+  "roles": {
+    "owner": {
+      "displayName": "You",
+      "labelBackground": "#765f59",
+      "displaySize": [192, 304],
+      "defaultOutfit": "default",
+      "outfits": {
+        "default": {
+          "frames": {
+            "idle": "room/assets/room-v2/game/example-characters/owner.svg",
+            "walk": "room/assets/room-v2/game/example-characters/owner.svg",
+            "actions": "room/assets/room-v2/game/example-characters/owner.svg"
+          }
+        }
+      }
+    },
+    "companion": {
+      "displayName": "Companion",
+      "labelBackground": "#536f70",
+      "displaySize": [192, 304],
+      "defaultOutfit": "default",
+      "outfits": {
+        "default": {
+          "frames": {
+            "idle": "room/assets/room-v2/game/example-characters/companion.svg",
+            "walk": "room/assets/room-v2/game/example-characters/companion.svg",
+            "actions": "room/assets/room-v2/game/example-characters/companion.svg"
+          }
+        }
+      }
+    }
+  }
+}
