@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import timedelta
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -94,6 +95,11 @@ class RoomStoreTests(unittest.TestCase):
             ["room_get_state", "room_move", "room_use_furniture", "room_stop"],
             [tool.name for tool in tool_models()],
         )
+        state_schema = next(tool for tool in tool_models() if tool.name == "room_get_state").input_schema
+        self.assertEqual(
+            {"include_furniture", "include_map", "include_recent_events"},
+            set(state_schema["properties"]),
+        )
         move_schema = next(tool for tool in tool_models() if tool.name == "room_move").input_schema
         self.assertEqual(
             ["owner"],
@@ -107,9 +113,44 @@ class RoomStoreTests(unittest.TestCase):
             {"target": {"kind": "tile", "x": 48, "y": 72}},
         )
         self.assertFalse(error)
-        after = {item["id"]: item for item in result["characters"]}
+        self.assertEqual("companion", result["actor"])
+        self.assertEqual("moving", result["phase"])
+        after = {item["id"]: item for item in self.store.snapshot()["characters"]}
         self.assertEqual(before["owner"]["position"], after["owner"]["position"])
         self.assertEqual("moving", after["companion"]["activity"])
+
+    def test_mcp_state_is_compact_by_default_and_expands_only_on_request(self):
+        compact, error = execute_tool(self.store, "room_get_state", {})
+        self.assertFalse(error)
+        self.assertTrue(compact["ok"])
+        self.assertEqual({"owner", "companion"}, {item["id"] for item in compact["characters"]})
+        self.assertLess(len(json.dumps(compact, ensure_ascii=False)), 1000)
+        for omitted in ("furniture", "semantic_map", "recent_events"):
+            self.assertNotIn(omitted, compact)
+
+        expanded, error = execute_tool(self.store, "room_get_state", {
+            "include_furniture": True,
+            "include_map": True,
+            "include_recent_events": True,
+        })
+        self.assertFalse(error)
+        self.assertIn("furniture", expanded)
+        self.assertIn("semantic_map", expanded)
+        self.assertIn("recent_events", expanded)
+
+    def test_mcp_furniture_use_returns_a_compact_phase_receipt(self):
+        result, error = execute_tool(
+            self.store,
+            "room_use_furniture",
+            {"furniture_id": "bed", "interaction": "sleep"},
+        )
+        self.assertFalse(error)
+        self.assertEqual("companion", result["actor"])
+        self.assertEqual("bed", result["furniture"])
+        self.assertEqual("sleep", result["action"])
+        self.assertIn(result["phase"], {"approaching", "completed"})
+        self.assertNotIn("characters", result)
+        self.assertNotIn("semantic_map", result)
 
     def test_layout_changes_are_owned_by_owner(self):
         with self.assertRaisesRegex(ValueError, "layout_owner_must_be_owner"):

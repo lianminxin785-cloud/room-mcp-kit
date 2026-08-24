@@ -26,12 +26,14 @@ PUT  /api/v1/room/layout
 
 ## MCP 工具
 
-- `room_get_state(scope, detail)`
+- `room_get_state(include_furniture, include_map, include_recent_events)`
 - `room_move(target)`
 - `room_use_furniture(furniture_id, interaction)`
 - `room_stop()`
 
 MCP 工具没有 `actor_id` 参数，调用身份固定为 `companion`。`room_move` 可以使用 tile、furniture 或 character 目标；character 目标只能是 `owner`。
+
+`room_get_state` 默认只返回场景 ID、revision、event cursor 和两个人物的精简状态。家具、最近事件与语义地图按需请求，避免每次查询都把完整地图送入模型上下文。`room_move`、`room_use_furniture` 与 `room_stop` 也只返回当前操作的阶段回执；需要刷新全局状态时再调用 `room_get_state`。
 
 ## 家具交互
 
