@@ -1,24 +1,67 @@
 {
   "schemaVersion": "room-character-pack-v1",
   "canvases": {
-    "locomotion": { "size": [192, 304], "anchor": "footAnchor" },
-    "seated": { "size": [192, 280], "anchor": "hipAnchor" },
-    "lying": { "size": [224, 336], "anchor": "pillowAnchor" }
+    "locomotion": {
+      "size": [
+        192,
+        304
+      ],
+      "anchor": "footAnchor"
+    },
+    "seated": {
+      "size": [
+        192,
+        280
+      ],
+      "anchor": "hipAnchor"
+    },
+    "lying": {
+      "size": [
+        224,
+        336
+      ],
+      "anchor": "pillowAnchor"
+    }
   },
   "anchors": {
-    "footAnchor": { "x": 96, "y": 296 },
-    "hipAnchor": { "x": 96, "y": 152 },
-    "pillowAnchor": { "x": 112, "y": 62 }
+    "footAnchor": {
+      "x": 96,
+      "y": 296
+    },
+    "hipAnchor": {
+      "x": 96,
+      "y": 152
+    },
+    "pillowAnchor": {
+      "x": 112,
+      "y": 62
+    }
   },
   "animations": {
-    "walk": { "frames": ["0", "idle", "1"], "frameRate": 5 },
-    "work": { "frames": ["0", "1"], "frameRate": 3 }
+    "walk": {
+      "frames": [
+        "0",
+        "idle",
+        "1"
+      ],
+      "frameRate": 5
+    },
+    "work": {
+      "frames": [
+        "0",
+        "1"
+      ],
+      "frameRate": 3
+    }
   },
   "roles": {
     "owner": {
       "displayName": "You",
       "labelBackground": "#765f59",
-      "displaySize": [192, 304],
+      "displaySize": [
+        192,
+        304
+      ],
       "defaultOutfit": "default",
       "outfits": {
         "default": {
@@ -31,16 +74,50 @@
       }
     },
     "companion": {
-      "displayName": "Companion",
-      "labelBackground": "#536f70",
-      "displaySize": [192, 304],
+      "displayName": "Alaric",
+      "labelBackground": "#765f59",
+      "displaySize": [
+        192,
+        304
+      ],
       "defaultOutfit": "default",
       "outfits": {
         "default": {
           "frames": {
-            "idle": "room/assets/room-v2/game/example-characters/companion.svg",
-            "walk": "room/assets/room-v2/game/example-characters/companion.svg",
-            "actions": "room/assets/room-v2/game/example-characters/companion.svg"
+            "idle": {
+              "down": "room/assets/room-v2/game/character-packs/companion/default/idle/down.png",
+              "left": "room/assets/room-v2/game/character-packs/companion/default/idle/left.png",
+              "up": "room/assets/room-v2/game/character-packs/companion/default/idle/up.png",
+              "right": "room/assets/room-v2/game/character-packs/companion/default/idle/right.png"
+            },
+            "walk": {
+              "down": {
+                "0": "room/assets/room-v2/game/character-packs/companion/default/walk/down-0.png",
+                "1": "room/assets/room-v2/game/character-packs/companion/default/walk/down-1.png"
+              },
+              "left": {
+                "0": "room/assets/room-v2/game/character-packs/companion/default/walk/left-0.png",
+                "1": "room/assets/room-v2/game/character-packs/companion/default/walk/left-1.png"
+              },
+              "up": {
+                "0": "room/assets/room-v2/game/character-packs/companion/default/walk/up-0.png",
+                "1": "room/assets/room-v2/game/character-packs/companion/default/walk/up-1.png"
+              },
+              "right": {
+                "0": "room/assets/room-v2/game/character-packs/companion/default/walk/right-0.png",
+                "1": "room/assets/room-v2/game/character-packs/companion/default/walk/right-1.png"
+              }
+            },
+            "actions": {
+              "sit": "room/assets/room-v2/game/character-packs/companion/default/actions/sit.png",
+              "read": "room/assets/room-v2/game/character-packs/companion/default/actions/read.png",
+              "work": {
+                "0": "room/assets/room-v2/game/character-packs/companion/default/actions/work-0.png",
+                "1": "room/assets/room-v2/game/character-packs/companion/default/actions/work-1.png"
+              },
+              "sleep": "room/assets/room-v2/game/character-packs/companion/default/actions/sleep.png",
+              "rest": "room/assets/room-v2/game/character-packs/companion/default/actions/rest.png"
+            }
           }
         }
       }
