@@ -1,4 +1,17 @@
 {
   "schemaVersion": "room-action-pack-v1",
-  "duoActions": []
+  "duoActions": [
+    {
+      "id": "sit",
+      "furniture": "sofa",
+      "path": "room/assets/room-v2/game/duo-actions/sit-together.png",
+      "transform": { "x": 0, "y": 10, "scale": 1 }
+    },
+    {
+      "id": "rest",
+      "furniture": "bed",
+      "path": "room/assets/room-v2/game/duo-actions/rest-together.png",
+      "transform": { "x": 0, "y": -45, "scale": 1 }
+    }
+  ]
 }

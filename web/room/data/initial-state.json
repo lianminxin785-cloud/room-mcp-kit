@@ -9,7 +9,7 @@
   "characters": [
     {
       "id": "owner",
-      "displayName": "You",
+      "displayName": "Elara",
       "position": { "x": 32, "y": 70 },
       "direction": "up",
       "clothes": "default",
@@ -18,7 +18,7 @@
     },
     {
       "id": "companion",
-      "displayName": "Companion",
+      "displayName": "Alaric",
       "position": { "x": 50, "y": 70 },
       "direction": "up",
       "clothes": "default",

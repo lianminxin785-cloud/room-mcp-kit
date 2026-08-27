@@ -2,7 +2,15 @@
 
 ## 公开范围
 
-本文件只记录 `room-mcp-kit` 中公开的房间背景、家具和墙面装饰。人物、人物动作、换装与双人合成图从未复制到公共仓库，也不在公共美术许可范围内。
+本文件主要记录 `room-mcp-kit` 中公开的房间背景、家具和墙面装饰。仓库中的自定义人物、人物动作、换装与双人合成图属于部署者的个性化素材，不在公共美术许可范围内。
+
+## 自定义人物素材
+
+- `web/room/assets/room-v2/game/character-packs/companion/default/**`
+- `web/room/assets/room-v2/game/character-packs/owner/default/**`
+- `web/room/assets/room-v2/game/duo-actions/**`
+
+这些人物与双人动作于 2026-08-27 使用 OpenAI 图像生成工具制作，并经过人工选择、透明背景处理、逐帧裁切、NEAREST 缩放与房间锚点校准。参考图仅为部署者拥有的同一组原创人物母版和本项目动作布局；这些素材保留为部署者的个性化内容，不随背景和家具适用的 CC BY 4.0 授权。
 
 ## 生成与人工处理
 
