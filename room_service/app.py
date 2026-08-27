@@ -26,9 +26,9 @@ class LayoutRequest(BaseModel):
     positions: dict[str, dict[str, int]]
 
 
-def create_app(settings: RoomSettings | None = None) -> FastAPI:
+def create_app(settings: RoomSettings | None = None, store: RoomStore | None = None) -> FastAPI:
     settings = (settings or RoomSettings.from_env()).validate()
-    store = RoomStore(
+    store = store or RoomStore(
         settings.db_path,
         initial_state_path=settings.initial_state_path,
         map_path=settings.map_path,
